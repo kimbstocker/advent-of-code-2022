@@ -1,15 +1,15 @@
-const fs = require("fs");
-const { resourceLimits } = require("worker_threads");
+import * as fs from "fs";
+
 const exampleData = fs.readFileSync("day1example.txt", "utf8");
 const data = fs.readFileSync("day1.txt", "utf8");
 
-const solve1 = (input) => {
+const solve1 = (input: string): number => {
   const array = input.split(/\n\n/);
 
   let result = 0;
 
   array.map((str) => {
-    smallArray = str.split("\n");
+    const smallArray = str.split("\n");
     let tempResult = smallArray.reduce((total, num) => {
       return total + parseInt(num);
     }, 0);
@@ -21,10 +21,10 @@ const solve1 = (input) => {
   return result;
 };
 
-const solve2 = (input) => {
+const solve2 = (input: string): number => {
   const array = input.split(/\n\n/);
 
-  let results = [];
+  let results: number[] = [];
 
   array.map((str) => {
     const smallArray = str.split("\n");
